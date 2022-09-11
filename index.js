@@ -10,4 +10,14 @@ server.on('message', (msg, info) => {
     });
 });
 
+server.on('listening',function(){
+    var address = server.address();
+    var port = address.port;
+    var family = address.family;
+    var ipaddr = address.address;
+    console.log('Server is listening at port' + port);
+    console.log('Server ip :' + ipaddr);
+    console.log('Server is IP4/IP6 : ' + family);
+  });
+
 server.bind(4242);
