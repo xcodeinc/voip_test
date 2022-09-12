@@ -2,8 +2,8 @@ var udp = require('dgram');
 var server = udp.createSocket('udp4');
 
 server.on('message', (msg, info) => {
-    console.log('aaa');
-    server.send(msg, 3838, info.address, (err) => {
+    console.log(info.port);
+    server.send(msg, info.port, info.address, (err) => {
         if(err) {
             console.log(err.message);
         }
